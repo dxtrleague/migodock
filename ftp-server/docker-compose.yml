@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  ftp-server-docker:
+    image: fauria/vsftpd
+    container_name: ftp-server-docker
+    environment:
+      - FTP_USER=${FTP_USER}
+      - FTP_PASS=${FTP_PASS}
+      - PASV_ADDRESS_ENABLE=${PASV_ADDRESS_ENABLE}
+      - PASV_ADDRESS=${PASV_ADDRESS}
+      - LOCAL_UMASK=${LOCAL_UMASK}
+    ports:
+      - 0.0.0.0:20:20
+      - 0.0.0.0:21:21
+      - 21100-21110:21100-21110
+    volumes:
+      - ./data/vsftpd:/home/vsftpd
+      - ./data/log:/var/log/vsftpd
