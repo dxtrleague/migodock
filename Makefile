@@ -41,3 +41,12 @@ stop-ftp-server:
 	@echo "stopping ftp-server..."
 	@$(DOCKER) kill ftp-server-docker && $(DOCKER) container rm ftp-server-docker
 	@echo "ftp-server stopped!"
+start-mongodb:
+	@echo "starting mongodb..."
+	@cd mongodb && $(DOCKER)-compose up -d
+	@$(DOCKER) ps | grep mongodb-docker
+	@echo "mongodb started!"
+stop-mongodb:
+	@echo "stopping mongodb..."
+	@$(DOCKER) kill mongodb-docker && $(DOCKER) container rm mongodb-docker
+	@echo "mongodb stopped!"
