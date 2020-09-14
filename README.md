@@ -19,10 +19,20 @@ Also for the default settings for every tools e.g `host`, `port` mostly using th
 
 ## Usage (Makefile targets)
 
-- `make start-ftp-server` starting ftp server
-- `make stop-ftp-server` stopping ftp server
-- `make start-mongodb` starting mongodb server
-- `make stop-mongodb` stopping mongodb server
+- `make start-ftp-server` starting FTP server
+- `make stop-ftp-server` stopping FTP server
+- `make start-mongodb` starting MongoDB server
+- `make stop-mongodb` stopping MongoDB server
+- `make start-postgres` starting PostgreSQL server _`[*1]`_
+- `make stop-postgres` stopping PostgreSQL server
+
+## Notes
+
+- _`[*1]`_ You might have problem during first initial `docker-compose` and have these kind of error
+```
+initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
+```
+try to remove `./postgres/data/.gitkeep` and execute `make start-postgres` again will do the tricks.
 
 ## Contributing
 
