@@ -23,6 +23,8 @@ Also for the default settings for every tools e.g `host`, `port` mostly using th
 - `make stop-ftp-server` stopping FTP server
 - `make start-mongodb` starting MongoDB server
 - `make stop-mongodb` stopping MongoDB server
+- `make start-mysql` starting MySQL server _`[*1]`_
+- `make stop-mysql` stopping MySQL server
 - `make start-postgres` starting PostgreSQL server _`[*1]`_
 - `make stop-postgres` stopping PostgreSQL server
 
@@ -30,10 +32,10 @@ Also for the default settings for every tools e.g `host`, `port` mostly using th
 
 - _`[*1]`_ You might have problem during first initial `docker-compose` and have these kind of error
 ```
-initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
+initdb: error: directory "/<tools-volume>/data" exists but is not empty
 ```
-try to remove `./postgres/data/.gitkeep` and execute `make start-postgres` again will do the tricks.
+try to remove `./<tools-name>/data/.gitkeep` and re-execute `make start-<tools-name>` again will do the tricks.
 
 ## Contributing
 
-Any suggested improvement & tools are very welcome, just create pull request to us.
+Any suggestion for improvement or another develepment tools are very welcome, just create pull request to us.

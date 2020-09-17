@@ -50,6 +50,15 @@ stop-mongodb:
 	@echo "stopping mongodb..."
 	@$(DOCKER) kill mongodb-docker && $(DOCKER) container rm mongodb-docker
 	@echo "mongodb stopped!"
+start-mysql:
+	@echo "starting mysql..."
+	@cd mysql && $(DOCKER)-compose up -d
+	@$(DOCKER) ps | grep mysql-docker
+	@echo "mysql started!"
+stop-mysql:
+	@echo "stopping mysql..."
+	@$(DOCKER) kill mysql-docker && $(DOCKER) container rm mysql-docker
+	@echo "mysql stopped!"
 start-postgres:
 	@echo "starting postgres..."
 	@cd postgres && $(DOCKER)-compose up -d

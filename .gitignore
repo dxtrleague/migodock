@@ -17,4 +17,5 @@
 .history
 ftp-server/data/
 mongodb/data/
+mysql/data/
 postgres/data/
