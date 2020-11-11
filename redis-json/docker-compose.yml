@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  redis-json-docker:
+    image: redislabs/rejson:${REJSON_IMAGE_VERSION}
+    container_name: redis-json-docker
+    command: redis-server --requirepass ${REJSON_PASSWORD} --loadmodule /usr/lib/redis/modules/rejson.so
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data:/data
+    networks:
+      - fastnet_fiber_optic
+networks:
+  fastnet_fiber_optic:
+    external: true
