@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  pgadmin-docker:
+    image: ${PGADMIN_IMAGE}
+    container_name: pgadmin-docker
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5433:80"
+    networks:
+      - postgres_default
+networks:
+  postgres_default:
+    external: true

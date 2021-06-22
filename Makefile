@@ -68,3 +68,12 @@ stop-postgres:
 	@echo "stopping postgres..."
 	@$(DOCKER) kill postgres-docker && $(DOCKER) container rm postgres-docker
 	@echo "postgres stopped!"
+start-pgadmin:
+	@echo "starting pgadmin..."
+	@cd pgadmin && $(DOCKER)-compose up -d
+	@$(DOCKER) ps | grep pgadmin-docker
+	@echo "pgadmin started!"
+stop-pgadmin:
+	@echo "stopping pgadmin..."
+	@$(DOCKER) kill pgadmin-docker && $(DOCKER) container rm pgadmin-docker
+	@echo "pgadmin stopped!"
